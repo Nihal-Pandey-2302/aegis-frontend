@@ -37,8 +37,8 @@ function ActivePolicies({ policies = [], onReportLoss, onClaim }) {
   
               <div className="policy-info">
                 <h4>{policy.name || `Token #${policy.nftTokenId}`}</h4>
+                <p>Expires: ⏳ {getRemainingTime(policy.expirationTimestamp)}</p>
                 <p>Premium Paid: {policy.premiumPaid ? `${(Number(policy.premiumPaid) / 1e18).toFixed(4)} ETH` : 'Not Available'}</p>
-                <p>Premium Paid: {policy.premiumEth || "NaN"} ETH</p>
                 {policy.lossReported && !policy.claimed && (
                   <p>Status: ⚠️ Loss Reported</p>
                 )}
