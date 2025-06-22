@@ -43,3 +43,4 @@ yarn-error.log*
 
 # IDE files
 .vscode/
+a.jsx

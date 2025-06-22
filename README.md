@@ -1,59 +1,85 @@
 # 🛡️ Aegis Protocol
 
-**Dynamic On-Chain NFT Insurance powered by Chainlink Functions.**
+*A decentralized insurance protocol with dynamic, data-driven premiums, powered by Chainlink Functions.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/YOUR_USERNAME/aegis-frontend)
+[![Project Status](https://img.shields.io/badge/Status-Feature_Complete-blue)](https://github.com/YOUR_USERNAME/aegis-frontend)
+
+**Live Demo:** `YOUR_VERCEL_URL` (We will add this after we deploy)
 
 ---
 
-### Elevator Pitch
+Aegis brings a new level of sophistication to NFT insurance. Instead of static, inefficient pricing, Aegis uses Chainlink Functions to perform off-chain risk analysis based on live market data, ensuring premiums are always fair and reflective of an asset's true risk profile.
 
-Aegis is a decentralized insurance protocol that brings real-world, data-driven risk analysis to the NFT space. Unlike traditional static insurance models, Aegis uses Chainlink Functions to fetch live market data and calculate a dynamic premium in real-time, ensuring users pay a fair price based on the current risk associated with their valuable digital assets.
+## The Problem It Solves
 
-### The Problem
+The NFT insurance market is young and inefficient. Current models use static premiums that don't account for the extreme volatility of digital assets. This means users often overpay for stable, blue-chip NFTs or are under-quoted for insuring new, high-risk assets. Aegis fixes this by introducing a dynamic, intelligent pricing model.
 
-The NFT insurance market is nascent and inefficient. Premiums are static and fail to account for the highly volatile and rapidly changing nature of NFT collections. Users either overpay for insurance on stable assets or are under-quoted for high-risk, trending assets.
+## How It Works: The Aegis Workflow
 
-### Our Solution
+Our system uses a hybrid on-chain/off-chain architecture to achieve its goal.
 
-Aegis solves this by acting as an automated, intelligent insurance underwriter.
+1. **Quote Request (On-Chain):** A user selects an NFT in the DApp and requests an insurance quote. This calls the `createPolicyRequest` function on our `Aegis.sol` smart contract.
+2. **Off-Chain Computation (Chainlink Functions):** The smart contract triggers a Chainlink Function, sending it the NFT's details. The Function's JavaScript source code securely executes off-chain.
+3. **Live Data Fetching:** The script makes a real-time API call to a market data provider (like Reservoir) to fetch the NFT collection's current floor price.
+4. **Risk Algorithm:** Our "AI" logic—a custom algorithm—combines the live floor price with other risk factors (like the NFT's simulated age) to calculate a final, dynamic premium.
+5. **On-Chain Fulfillment:** The Chainlink DON delivers this calculated premium back to our `Aegis.sol` contract, which securely stores the quote.
+6. **Policy Execution:** The user is prompted to approve a final transaction, paying the quoted premium to create an immutable insurance policy record on the blockchain.
 
-1. **User Selects NFT:** A user connects their wallet and selects an NFT they wish to insure from their collection.
-2. **Dynamic Quoting:** Aegis triggers a Chainlink Function. This function runs a secure, off-chain JavaScript script that fetches live market data (like the collection's floor price from the Reservoir API) and combines it with on-chain data characteristics (like the NFT's age, simulated by its token ID).
-3. **On-Chain Policy Creation:** The script returns a single, dynamically calculated premium to the `Aegis.sol` smart contract. The user can then accept this quote and pay the premium in ETH to create an immutable, on-chain insurance policy.
+*(A simple diagram created with a tool like [Excalidraw](https://excalidraw.com/) would be extremely effective here!)*
 
-![Aegis Workflow Diagram](https://i.imgur.com/your-diagram-url.png)
-*(You can create a simple diagram using a tool like Excalidraw or FigJam and upload the image to Imgur to get a link)*
+## Key Features
 
----
+* **Dynamic, Data-Driven Premiums:** Utilizes Chainlink Functions to access real-world APIs for risk assessment.
+* **Fully On-Chain Policies:** Insurance policies are created and stored as structs within the `Aegis.sol` smart contract, ensuring transparency and immutability.
+* **Dynamic UI:** The frontend automatically updates when policies are created, visually moving an NFT from the "Uninsured" list to the "Active Policies" list.
+* **Professional User Experience:** Features a polished dashboard layout, interactive modals, and real-time toast notifications for a smooth user journey.
 
-### Key Features
-
-* **Dynamic Premium Calculation:** Core logic runs off-chain using Chainlink Functions to access real-world APIs.
-* **Fully On-Chain Policies:** All created policies are stored immutably in the `Aegis.sol` smart contract.
-* **Interactive Frontend:** A polished React application provides a seamless user experience for connecting a wallet, viewing NFTs, requesting quotes, and creating policies.
-* **Real-Time Notifications:** The DApp uses on-chain event listeners and toast notifications to keep the user informed of the multi-step insurance process.
-
-### Tech Stack
+## Tech Stack
 
 * **Blockchain:** Ethereum (Sepolia Testnet)
-* **Smart Contracts:** Solidity, OpenZeppelin
+* **Smart Contracts:** Solidity, OpenZeppelin, Hardhat (for Chainlink Functions toolkit)
 * **Off-Chain Computation:** Chainlink Functions
-* **Frontend:** React (Vite), Ethers.js, react-hot-toast
-* **Data & APIs:** Alchemy (NFT API), Reservoir (Market Data API)
-* **Development & Deployment:** Remix IDE, Hardhat (for Functions Toolkit)
+* **Frontend:** React (Vite), Ethers.js, `react-hot-toast`
+* **Deployment:** Remix IDE (Contracts), Vercel (Frontend)
+* **Data & APIs:** Alchemy (NFT Data), Reservoir (Market Data)
+
+## Getting Started
+
+To run this project locally:
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/aegis-frontend.git](https://github.com/YOUR_USERNAME/aegis-frontend.git)
+    cd aegis-frontend
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up environment variables:**
+    Create a `.env` file in the root and add your Alchemy API Key:
+    `VITE_ALCHEMY_API_KEY=YOUR_ALCHEMY_KEY`
+4. **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+## Project Repositories
+
+* **Frontend:** `[Link to your aegis-frontend GitHub repo]`
+* **Backend (Smart Contracts & Logic):** `[Link to your aegis-backend GitHub repo]`
+
+## Deployed Contract
+
+* **Aegis.sol on Sepolia Etherscan:**
+    `[Link to your final contract address on sepolia.etherscan.io]`
 
 ---
-
-### Getting Started
-
-1. Clone the frontend and backend repositories.
-2. Install dependencies: `npm install`
-3. Create a `.env` file with your `SEPOLIA_RPC_URL` and `PRIVATE_KEY`.
-4. Run the frontend: `npm run dev`
-
-### Deployed Contracts
-
-* **Aegis.sol:** `0xed8a57ff5ED79e9F1803f486C6ad61c16f8ab6D3` on Sepolia
-
----
-
-*This project was built for the Chromium Hackathon in June 2025.*
+*This project was built for the [Name of Hackathon] | June 2025*
