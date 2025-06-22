@@ -1,0 +1,40 @@
+/*
+  This is a modern CSS reset. It ensures that all elements
+  behave more predictably across different browsers.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* This is the most important rule. It makes layout math intuitive. */
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  This ensures that the main document, body, and the React root div
+  all take up the full height of the viewport. This is CRITICAL for
+  vertical centering to work correctly.
+*/
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Now we can re-import the Google Font here, as it's a global resource.
+  It's better practice to have it in this global stylesheet.
+*/
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Set the default font for the whole app */
+  background-color: #121212;
+  /* Set the default background for the whole app */
+  color: #e0e0e0;
+  /* Set the default text color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
