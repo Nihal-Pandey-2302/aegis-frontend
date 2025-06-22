@@ -53,6 +53,17 @@ NFTs are volatile, yet most insurance models rely on static pricing, leading to 
 - 💡 **Smart UX:** React dashboard with clear visuals and feedback  
 - 🔁 **Remix-Compatible Deployment:** Easy for Web3 beginners—no Hardhat needed
 
+## 📱 Responsive Design
+
+The Aegis Protocol frontend is fully responsive and optimized for both desktop and mobile devices. The layout adjusts dynamically for smaller screens to ensure smooth user experience on phones and tablets.
+
+Key enhancements include:
+
+- Collapsible sidebar on mobile view
+- Stacked layout for content and headers
+- Responsive grid for NFTs and policy cards
+
+
 ---
 
 ## ⚙️ Tech Stack
