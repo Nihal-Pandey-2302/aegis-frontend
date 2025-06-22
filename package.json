@@ -12,7 +12,9 @@
   "dependencies": {
     "alchemy-sdk": "^3.6.0",
     "buffer": "^6.0.3",
+    "ethereum-blockies": "^0.1.1",
     "ethers": "^5.7.2",
+    "lucide-react": "^0.522.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",

@@ -38,3 +38,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* At the bottom of layout.css or App.css */
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+}
+
+.wallet-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.copy-icon {
+  transition: color 0.2s;
+  color: #ccc;
+}
+
+.copy-icon.copied {
+  color: #27ae60;
+}

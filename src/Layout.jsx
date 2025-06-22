@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { Alchemy, Network } from 'alchemy-sdk';
 import InsuranceModal from './components/InsuranceModal.jsx';
+import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import { AEGIS_ABI, AEGIS_CONTRACT_ADDRESS } from './config/contract';
@@ -201,14 +202,7 @@ function Layout() {
       <Toaster position="top-center" reverseOrder={false} />
       <Sidebar account={account} activePolicies={activePolicies} uninsuredNfts={uninsuredNfts} />
       <div className="main-app-content">
-        <header className="app-header">
-          <div></div>
-          {account ? (
-            <div className="wallet-info">{truncateAddress(account)}</div>
-          ) : (
-            <button onClick={connectWallet} className="connectButton">Connect Wallet</button>
-          )}
-        </header>
+      <Header account={account} onConnect={connectWallet} />
         <div className="content-wrapper">
           {/* Outlet now passes all necessary data and functions to the child routes */}
           <Outlet context={{ 
