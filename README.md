@@ -105,3 +105,4 @@ Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bit
 
 ---
 *This project was built for the [Chromium Hackathon] | June 2025*
+

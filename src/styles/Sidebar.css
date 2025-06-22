@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    position: fixed;
 }
 
 .sidebar-logo {
@@ -74,3 +75,11 @@
     font-size: 1rem;
     font-weight: 600;
     color: white; }
+
+        .main-app-content {
+            margin-left: 250px;
+            /* offset content to the right */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }

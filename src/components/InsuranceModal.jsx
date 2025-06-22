@@ -1,6 +1,6 @@
 import React from 'react';
 import { ethers } from 'ethers';
-import './InsuranceModal.css';
+import '../styles/InsuranceModal.css';
 
 function InsuranceModal({ nft, quote, onClose, onConfirm }) {
   if (!nft) return null;

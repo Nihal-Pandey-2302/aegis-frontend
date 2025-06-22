@@ -1,15 +1,17 @@
 
 
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink
-import './Sidebar.css';
+import { Link, NavLink } from 'react-router-dom'; // Import NavLink
+import '../styles/Sidebar.css';
 
 function Sidebar() {
   return (
     <aside className="sidebar">
+      <Link to="/">
       <div className="sidebar-logo">
         🛡️ Aegis
-      </div>
+        </div>
+        </Link>
       <nav className="sidebar-nav">
         <ul>
           {/* Replace a href with NavLink to */}
