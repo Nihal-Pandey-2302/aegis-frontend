@@ -65,3 +65,94 @@ body {
 .copy-icon.copied {
   color: #27ae60;
 }
+
+/* ----------------------------- */
+/* 📱 Mobile Responsive Patch 📱 */
+/* ----------------------------- */
+@media (max-width: 768px) {
+
+  /* App Layout */
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .main-app-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .content-wrapper {
+    padding: 1rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .wallet-info {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .connectButton {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  /* NFT Gallery and Policy Cards */
+  .nft-gallery,
+  .policies-list {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .nft-card img,
+  .policy-card img {
+    height: 140px;
+  }
+
+  .policy-card {
+    padding: 1rem;
+  }
+
+  .policy-info h4 {
+    font-size: 1rem;
+  }
+
+  .policy-actions .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .hero-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.95rem;
+  }
+
+  .sidebar-stats {
+    padding: 0.75rem;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+  }
+
+  .logo-image {
+    height: 24px;
+  }
+}
