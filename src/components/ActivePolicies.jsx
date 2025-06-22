@@ -1,15 +1,15 @@
 import React from 'react';
 import '../styles/ActivePolicies.css';
 
-function ActivePolicies({ policies = [] }) {
+function ActivePolicies({ policies = [], onReportLoss, onClaim }) {
   const getRemainingTime = (expiration) => {
     const expirationTimestamp = Number(expiration.toString());
     const now = Date.now() / 1000;
     const remaining = expirationTimestamp - now;
-    if (remaining <= 0) return "Expired";
+    if (remaining <= 0) return '⛔ Expired';
     const days = Math.floor(remaining / 86400);
     const hours = Math.floor((remaining % 86400) / 3600);
-    return `${days}d ${hours}h left`;
+    return `⏳ ${days}d ${hours}h left`;
   };
 
   return (
@@ -19,14 +19,45 @@ function ActivePolicies({ policies = [] }) {
         <div className="policies-list">
           {policies.map(policy => (
             <div key={policy.policyId} className="policy-card">
-              {policy.image?.cachedUrl ? (
-                <img src={policy.image.cachedUrl} alt={policy.name || "NFT Image"} />
-              ) : (
-                <div className="no-image-placeholder">No image</div>
-              )}
+              <div className="policy-image-wrapper">
+                {policy.image?.cachedUrl ? (
+                  <img src={policy.image.cachedUrl} alt={policy.name || "NFT Image"} />
+                ) : (
+                  <div className="no-image-placeholder">No image</div>
+                )}
+  
+                {policy.claimed && (
+                  <span className="claimed-badge">✅ Claimed</span>
+                )}
+  
+                {!policy.claimed && policy.lossReported && (
+                  <span className="loss-badge">⚠️ Loss Reported</span>
+                )}
+              </div>
+  
               <div className="policy-info">
                 <h4>{policy.name || `Token #${policy.nftTokenId}`}</h4>
-                <p>Expires: {getRemainingTime(policy.expirationTimestamp)}</p>
+                <p>Expires: ⏳ {getRemainingTime(policy.expirationTimestamp)}</p>
+                <p>Premium Paid: {policy.premiumEth || "NaN"} ETH</p>
+                {policy.lossReported && !policy.claimed && (
+                  <p>Status: ⚠️ Loss Reported</p>
+                )}
+                {policy.claimed && (
+                  <p>Status: ✅ Claimed</p>
+                )}
+              </div>
+  
+              <div className="policy-actions">
+                {!policy.lossReported && !policy.claimed && (
+                  <button onClick={() => onReportLoss(policy.policyId)} className="btn report-loss">
+                    Report Loss
+                  </button>
+                )}
+                {policy.lossReported && !policy.claimed && (
+                  <button onClick={() => onClaim(policy.policyId)} className="btn claim-policy">
+                    Claim
+                  </button>
+                )}
               </div>
             </div>
           ))}

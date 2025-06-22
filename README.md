@@ -1,49 +1,71 @@
 # 🛡️ Aegis Protocol
 
-*A decentralized insurance protocol with dynamic, data-driven premiums, powered by Chainlink Functions.*
+*A decentralized NFT insurance protocol with dynamic, real-time premiums powered by Chainlink Functions.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/YOUR_USERNAME/aegis-frontend)
-[![Project Status](https://img.shields.io/badge/Status-Feature_Complete-blue)](https://github.com/YOUR_USERNAME/aegis-frontend)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
+[![Project Status](https://img.shields.io/badge/Status-Feature_Complete-blue)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
 
-**Live Demo:** `YOUR_VERCEL_URL` (We will add this after we deploy)
+**Live Demo:** [https://aegis-frontend-tau.vercel.app/](https://aegis-frontend-tau.vercel.app/)
 
 ---
 
-Aegis brings a new level of sophistication to NFT insurance. Instead of static, inefficient pricing, Aegis uses Chainlink Functions to perform off-chain risk analysis based on live market data, ensuring premiums are always fair and reflective of an asset's true risk profile.
+## 📌 About
 
-## The Problem It Solves
+Aegis introduces intelligent insurance for NFTs, using real-time market data to offer dynamic, fair premiums. Built with Chainlink Functions and deployed on Ethereum Sepolia, it removes manual risk assumptions by relying on live NFT floor prices and on-chain policy enforcement.
 
-The NFT insurance market is young and inefficient. Current models use static premiums that don't account for the extreme volatility of digital assets. This means users often overpay for stable, blue-chip NFTs or are under-quoted for insuring new, high-risk assets. Aegis fixes this by introducing a dynamic, intelligent pricing model.
+---
 
-## How It Works: The Aegis Workflow
+## 🚩 The Problem
 
-Our system uses a hybrid on-chain/off-chain architecture to achieve its goal.
+NFTs are volatile, yet most insurance models rely on static pricing, leading to overpriced coverage or under-hedged risks. Aegis solves this by offering:
 
-1. **Quote Request (On-Chain):** A user selects an NFT in the DApp and requests an insurance quote. This calls the `createPolicyRequest` function on our `Aegis.sol` smart contract.
-2. **Off-Chain Computation (Chainlink Functions):** The smart contract triggers a Chainlink Function, sending it the NFT's details. The Function's JavaScript source code securely executes off-chain.
-3. **Live Data Fetching:** The script makes a real-time API call to a market data provider (like Reservoir) to fetch the NFT collection's current floor price.
-4. **Risk Algorithm:** Our "AI" logic—a custom algorithm—combines the live floor price with other risk factors (like the NFT's simulated age) to calculate a final, dynamic premium.
-5. **On-Chain Fulfillment:** The Chainlink DON delivers this calculated premium back to our `Aegis.sol` contract, which securely stores the quote.
-6. **Policy Execution:** The user is prompted to approve a final transaction, paying the quoted premium to create an immutable insurance policy record on the blockchain.
+- 📈 Market-aware premium calculation  
+- 🤖 Automated off-chain risk logic via Chainlink Functions  
+- ✅ Trustless execution and payout on-chain
 
-*(A simple diagram created with a tool like [Excalidraw](https://excalidraw.com/) would be extremely effective here!)*
+---
 
-## Key Features
+## 🧠 How Aegis Works
 
-* **Dynamic, Data-Driven Premiums:** Utilizes Chainlink Functions to access real-world APIs for risk assessment.
-* **Fully On-Chain Policies:** Insurance policies are created and stored as structs within the `Aegis.sol` smart contract, ensuring transparency and immutability.
-* **Dynamic UI:** The frontend automatically updates when policies are created, visually moving an NFT from the "Uninsured" list to the "Active Policies" list.
-* **Professional User Experience:** Features a polished dashboard layout, interactive modals, and real-time toast notifications for a smooth user journey.
+1. **Quote Request:**  
+   User selects an NFT → Triggers `createPolicyRequest()` in the smart contract.
 
-## Tech Stack
+2. **Chainlink Function Triggered:**  
+   Contract calls a JS script via Chainlink Functions → Script fetches floor price using Reservoir API.
 
-* **Blockchain:** Ethereum (Sepolia Testnet)
-* **Smart Contracts:** Solidity, OpenZeppelin, Hardhat (for Chainlink Functions toolkit)
-* **Off-Chain Computation:** Chainlink Functions
-* **Frontend:** React (Vite), Ethers.js, `react-hot-toast`
-* **Deployment:** Remix IDE (Contracts), Vercel (Frontend)
-* **Data & APIs:** Alchemy (NFT Data), Reservoir (Market Data)
+3. **Dynamic Premium Calculation:**  
+   Floor price + NFT age → Risk-adjusted premium calculated in ETH → Returned to contract.
+
+4. **User Executes Policy:**  
+   User approves quote → Pays premium → Policy struct is created and stored on-chain.
+
+5. **Loss Reporting & Claim:**  
+   Policyholder can report a loss and claim funds automatically if eligible.
+
+---
+
+## ✨ Features
+
+- 🔄 **Real-Time Premiums:** Live API data powers pricing  
+- 🔐 **Trustless On-Chain Policies:** Transparent, immutable insurance logic  
+- 🧩 **NFT-Aware Risk Model:** Considers floor price and token age  
+- 💡 **Smart UX:** React dashboard with clear visuals and feedback  
+- 🔁 **Remix-Compatible Deployment:** Easy for Web3 beginners—no Hardhat needed
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer             | Tech                                      |
+|------------------|-------------------------------------------|
+| Blockchain        | Ethereum (Sepolia Testnet)                |
+| Smart Contracts   | Solidity, Remix IDE                       |
+| Off-Chain Logic   | Chainlink Functions                       |
+| Frontend          | React (Vite), Ethers.js, Tailwind, Toast |
+| APIs              | Reservoir (floor price), Alchemy (NFT metadata) |
+
+---
 
 ## Getting Started
 
@@ -85,9 +107,9 @@ The Sepolia network requires ETH for gas fees. You can get free testnet ETH from
 
 Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bitbond Token Tool. This tool has a multi-step process.
 
-* **NFT Minting Tool:** [Bitbond's Token Tool for Sepolia](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
+- **NFT Minting Tool:** [Bitbond's Token Tool for Sepolia](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
 
-* **Instructions:**
+- **Instructions:**
     1. **Create NFT Definition:** First, use the "Create NFT" page to define your NFT (e.g., give it a name like "My Test Asset"). This transaction creates the contract for your NFT collection.
     2. **Manage Metadata:** After creation, go to the "Manage" section of their tool. Here you can add a picture and other metadata to your NFT definition.
     3. **Mint the NFT:** Finally, go to the "Mint" section in the NFT minting page by clicking this link on the manage page. Select the NFT you just defined and mint it to your wallet address.
@@ -95,14 +117,33 @@ Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bit
 
 ## Project Repositories
 
-* **Frontend:** `https://github.com/Nihal-Pandey-2302/aegis-frontend`
-* **Backend (Smart Contracts & Logic):** `https://github.com/Nihal-Pandey-2302/aegis-backend`
+- **Frontend:** `https://github.com/Nihal-Pandey-2302/aegis-frontend`
+- **Backend (Smart Contracts & Logic):** `https://github.com/Nihal-Pandey-2302/aegis-backend`
 
-## Deployed Contract
+## 🔗 Smart Contract
 
-* **Aegis.sol on Sepolia Etherscan:**
-    `https://sepolia.etherscan.io/address/0xed8a57ff5ED79e9F1803f486C6ad61c16f8ab6D3`
+- **Sepolia Contract:**  
+  [`AegisV2.sol`](https://sepolia.etherscan.io/address/0xa155016b9C39F500605F2e459A3335703b7053df)
 
 ---
-*This project was built for the [Chromium Hackathon] | June 2025*
 
+## 📌 Key Notes for Deployment
+
+- ✅ Add the deployed contract address in your frontend `config.js`
+- 🔁 Ensure Chainlink subscription has Aegis contract as an authorized consumer
+- ⛽ Use MetaMask to fund the contract with ETH for payouts
+- 🧪 Use Remix for seamless deployments—no Hardhat setup needed
+
+---
+
+## 🏁 Final Thoughts
+
+Aegis Protocol shows how off-chain computation and real-world data can be fused with immutable smart contracts to enable real financial products on-chain. It demonstrates:
+
+- Decentralized risk computation  
+- Real-world API integration  
+- Simple, user-friendly frontend for complex backend logic
+
+---
+
+*This project was built for the [Chromium Hackathon] | June 2025*

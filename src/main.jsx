@@ -1,4 +1,6 @@
 import React from 'react';
+import { Buffer } from "buffer";
+window.Buffer = Buffer;
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PoliciesPage from './pages/PoliciesPage';
