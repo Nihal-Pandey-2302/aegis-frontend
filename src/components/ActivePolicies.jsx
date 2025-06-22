@@ -27,7 +27,7 @@ function ActivePolicies({ policies = [], onReportLoss, onClaim }) {
                 )}
   
                 {policy.claimed && (
-                  <span className="claimed-badge">✅ Claimed</span>
+                  <span className="claimed-badge">✅ Claimed</span> 
                 )}
   
                 {!policy.claimed && policy.lossReported && (
