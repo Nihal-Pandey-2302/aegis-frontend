@@ -117,8 +117,8 @@ Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bit
 
 ## Project Repositories
 
-- **Frontend:** `https://github.com/Nihal-Pandey-2302/aegis-frontend`
-- **Backend (Smart Contracts & Logic):** `https://github.com/Nihal-Pandey-2302/aegis-backend`
+- **Frontend:** [https://github.com/Nihal-Pandey-2302/aegis-frontend](https://github.com/Nihal-Pandey-2302/aegis-frontend)
+- **Backend (Smart Contracts & Logic):** [https://github.com/Nihal-Pandey-2302/aegis-backend](https://github.com/Nihal-Pandey-2302/aegis-backend)
 
 ## 🔗 Smart Contract
 
