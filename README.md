@@ -71,15 +71,37 @@ To run this project locally:
     npm run dev
     ```
 
+## How to Use the Aegis Demo
+
+To test the Aegis Protocol, you will need a wallet funded with Sepolia ETH and at least one NFT on the Sepolia testnet.
+
+### 1. Get Sepolia ETH
+
+The Sepolia network requires ETH for gas fees. You can get free testnet ETH from a public faucet.
+
+* **Recommended Faucet:** [Alchemy's Sepolia Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
+    *(Note: Most faucets require a small mainnet balance (e.g., 0.001 ETH) in your wallet to prevent bots.)*
+
+### 2. Get a Testnet NFT
+
+Once you have Sepolia ETH, you can mint a free testnet NFT to insure.
+
+* **Recommended NFT Faucet:** [Bitbond's Token Tool NFT Minter](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
+  * **Instructions:**
+        1. Connect your wallet (on the Sepolia network).
+        2. You can leave all fields as default or give your test NFT a name.
+        3. Click "Create NFT" and approve the transaction in MetaMask.
+        4. Once the transaction is complete, the NFT will be in your wallet and will appear in the Aegis app.
+
 ## Project Repositories
 
-* **Frontend:** `[Link to your aegis-frontend GitHub repo]`
-* **Backend (Smart Contracts & Logic):** `[Link to your aegis-backend GitHub repo]`
+* **Frontend:** `https://github.com/Nihal-Pandey-2302/aegis-frontend`
+* **Backend (Smart Contracts & Logic):** `https://github.com/Nihal-Pandey-2302/aegis-backend`
 
 ## Deployed Contract
 
 * **Aegis.sol on Sepolia Etherscan:**
-    `[Link to your final contract address on sepolia.etherscan.io]`
+    `https://sepolia.etherscan.io/address/0xed8a57ff5ED79e9F1803f486C6ad61c16f8ab6D3`
 
 ---
-*This project was built for the [Name of Hackathon] | June 2025*
+*This project was built for the [Chromium Hackathon] | June 2025*
