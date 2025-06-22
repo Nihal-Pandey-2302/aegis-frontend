@@ -80,18 +80,18 @@ To test the Aegis Protocol, you will need a wallet funded with Sepolia ETH and a
 The Sepolia network requires ETH for gas fees. You can get free testnet ETH from a public faucet.
 
 * **Recommended Faucet:** [Alchemy's Sepolia Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
-    *(Note: Most faucets require a small mainnet balance (e.g., 0.001 ETH) in your wallet to prevent bots.)*
 
 ### 2. Get a Testnet NFT
 
-Once you have Sepolia ETH, you can mint a free testnet NFT to insure.
+Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bitbond Token Tool. This tool has a multi-step process.
 
-* **Recommended NFT Faucet:** [Bitbond's Token Tool NFT Minter](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
-  * **Instructions:**
-        1. Connect your wallet (on the Sepolia network).
-        2. You can leave all fields as default or give your test NFT a name.
-        3. Click "Create NFT" and approve the transaction in MetaMask.
-        4. Once the transaction is complete, the NFT will be in your wallet and will appear in the Aegis app.
+* **NFT Minting Tool:** [Bitbond's Token Tool for Sepolia](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
+
+* **Instructions:**
+    1. **Create NFT Definition:** First, use the "Create NFT" page to define your NFT (e.g., give it a name like "My Test Asset"). This transaction creates the contract for your NFT collection.
+    2. **Manage Metadata:** After creation, go to the "Manage" section of their tool. Here you can add a picture and other metadata to your NFT definition.
+    3. **Mint the NFT:** Finally, go to the "Mint" section in the NFT minting page by clicking this link on the manage page. Select the NFT you just defined and mint it to your wallet address.
+    4. **Check MetaMask:** After you approve the final minting transaction, the NFT should appear automatically in your MetaMask wallet under the "NFTs" tab. It will then be visible in the Aegis application.
 
 ## Project Repositories
 
