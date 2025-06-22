@@ -204,7 +204,7 @@ function Layout() {
   return (
     <div className="app-layout">
       <Toaster position="top-center" reverseOrder={false} />
-      <Sidebar />
+      <Sidebar account={account} activePolicies={activePolicies} uninsuredNfts={uninsuredNfts} />
       <div className="main-app-content">
         <header className="app-header">
           <div></div>
