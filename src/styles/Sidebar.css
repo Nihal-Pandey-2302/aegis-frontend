@@ -15,6 +15,7 @@
     color: white;
     text-align: center;
     margin-bottom: 2.5rem;
+    
 }
 
 .sidebar-nav ul {
@@ -76,10 +77,17 @@
     font-weight: 600;
     color: white; }
 
-        .main-app-content {
-            margin-left: 250px;
+.main-app-content {
+    margin-left: 250px;
             /* offset content to the right */
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+ .sidebar a,
+ .sidebar a:hover,
+ .sidebar a:focus {
+     text-decoration: none;
+ }
