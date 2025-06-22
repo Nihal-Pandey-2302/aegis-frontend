@@ -37,7 +37,7 @@
     color: white;
 }
 
-.sidebar-nav li.active a {
+.sidebar-nav li.active  {
     background-color: var(--primary-accent);
     color: white;
     box-shadow: 0 4px 15px 0 rgba(0, 170, 255, 0.3);

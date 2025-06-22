@@ -1,7 +1,7 @@
 import React from 'react';
 import './ActivePolicies.css';
 
-function ActivePolicies({ insuredNfts }) {
+function ActivePolicies({ insuredNfts = [] }) {
   const getRemainingTime = (expiration) => {
     const now = new Date().getTime() / 1000;
     const remaining = expiration - now;

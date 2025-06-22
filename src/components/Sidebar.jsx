@@ -1,4 +1,7 @@
+
+
 import React from 'react';
+import { NavLink } from 'react-router-dom'; // Import NavLink
 import './Sidebar.css';
 
 function Sidebar() {
@@ -9,10 +12,10 @@ function Sidebar() {
       </div>
       <nav className="sidebar-nav">
         <ul>
-          <li className="active"><a href="#">📊 Dashboard</a></li>
-          <li><a href="#">📜 My Policies</a></li>
-          <li><a href="#">❓ How It Works</a></li>
-          <li><a href="#">📞 Support</a></li>
+          {/* Replace a href with NavLink to */}
+          <li><NavLink to="/">📊 Dashboard</NavLink></li>
+          <li><NavLink to="/policies">📜 My Policies</NavLink></li>
+          <li><NavLink to="/how-it-works">❓ How It Works</NavLink></li>
         </ul>
       </nav>
       <div className="sidebar-stats">

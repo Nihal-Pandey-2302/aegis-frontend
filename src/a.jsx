@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import toast, { Toaster } from 'react-hot-toast';
 import { Alchemy, Network } from 'alchemy-sdk';
+import { Routes, Route } from 'react-router-dom';
+import HowItWorks from './components/HowItWorks';
 
 import './App.css';
 import Sidebar from './components/Sidebar';
@@ -140,81 +142,54 @@ function App() {
     setSelectedNft(null);
   };
 
-  const handleRequestQuote = async (nft) => {
-    if (!contract) return;
-    toast.loading("Sending quote request to oracle...", { id: "quote" });
-    const tx = await contract.createPolicyRequest(CHAINLINK_SUBSCRIPTION_ID, nft.contract.address, nft.tokenId);
-    const receipt = await tx.wait();
-    const event = receipt.events.find(e => e.event === 'RequestSent');
-    const requestId = event.args.id;
-    toast.success("Request sent! Waiting for response...", { id: "quote" });
-    setSelectedNft(prev => ({ ...prev, lastRequestId: requestId })); // Store requestId to match response
-    return requestId;
-  };
-
-  const handleExecutePolicy = async (nft, requestId, quote) => {
-    handleCloseModal();
-    const promise = contract.executePolicy(requestId, nft.contract.address, nft.tokenId, { value: quote });
-
-    toast.promise(promise, {
-      loading: 'Executing policy... Please approve transaction.',
-      success: (tx) => {
-        tx.wait().then(() => {
-            // Optimistic UI Update
-            setUninsuredNfts(prev => prev.filter(item => item.tokenId !== nft.tokenId || item.contract.address.toLowerCase() !== nft.contract.address.toLowerCase()));
-            setInsuredNfts(prev => [...prev, nft]);
-        });
-        return <b>Policy for {nft.name} created!</b>;
-      },
-      error: (err) => <b>Transaction failed: {err.reason || err.message}</b>,
-    });
-  };
+  
 
 
   const handleCreatePolicy = async (nft) => {
-    if (!contract) {
-      alert("Contract not connected. Please reconnect wallet.");
-      return;
-    }
-
+    if (!contract) return toast.error("Please connect your wallet first.");
+    
     handleCloseModal();
+    const toastId = toast.loading('1/2: Please approve quote request...');
   
-    const promise = new Promise(async (resolve, reject) => {
-      let requestId;
-      try {
-        const requestTx = await contract.createPolicyRequest(CHAINLINK_SUBSCRIPTION_ID, nft.contract.address, nft.tokenId);
-        const receipt = await requestTx.wait();
-        const event = receipt.events.find(e => e.event === 'RequestSent');
-        if (!event) throw new Error("Could not find RequestSent event. Oracle request may have failed.");
-        requestId = event.args.id;
-        
-        toast.success("Quote request sent! Waiting for oracle...", { icon: "⏳" });
-
-        contract.once(contract.filters.QuoteReceived(requestId), async (reqId, premium) => {
-          try {
-            toast.loading("Quote received! Please confirm final transaction.", { icon: "🔔" });
-            const executeTx = await contract.executePolicy(requestId, nft.contract.address, nft.tokenId, { value: premium });
-            await executeTx.wait();
-
-            // Optimistic UI Update
-            setUninsuredNfts(prev => prev.filter(item => item.tokenId !== nft.tokenId || item.contract.address.toLowerCase() !== nft.contract.address.toLowerCase()));
-            setInsuredNfts(prev => [...prev, nft]);
-
-            resolve(`Policy created for ${nft.name}!`);
-          } catch (innerError) {
-             reject(innerError);
-          }
-        });
-      } catch (error) {
-        reject(error);
+    try {
+      const requestTx = await contract.createPolicyRequest(
+        CHAINLINK_SUBSCRIPTION_ID, 
+        nft.contract.address, 
+        nft.tokenId
+      );
+      
+      toast.loading('2/2: Request sent! Waiting for oracle...', { id: toastId });
+  
+      const receipt = await requestTx.wait();
+      const event = receipt.events.find(e => e.event === 'RequestSent');
+      if (!event) {
+        throw new Error("Could not find RequestSent event in transaction logs.");
       }
-    });
+      const requestId = event.args.id;
+      console.log("Request sent. Waiting for fulfillment. Request ID:", requestId);
   
-    toast.promise(promise, {
-      loading: '1/2: Please approve the quote request transaction...',
-      success: (message) => <b>{message}</b>,
-      error: (err) => <b>Transaction failed: {err.reason || err.message || "Unknown error."}</b>,
-    });
+      // Set up a listener for the specific response
+      contract.once(contract.filters.QuoteReceived(requestId), async (reqId, premium) => {
+        console.log("Quote received from oracle:", ethers.utils.formatEther(premium), "ETH");
+        toast.loading('Quote received! Please approve final payment...', { id: toastId, icon: "🔔" });
+        
+        try {
+          const executeTx = await contract.executePolicy(requestId, nft.contract.address, nft.tokenId, { value: premium });
+          await executeTx.wait();
+          
+          toast.success(`Policy for ${nft.name} created!`, { id: toastId, duration: 4000 });
+          await fetchAllData(); // Refresh all data from the blockchain
+  
+        } catch (execError) {
+          console.error("Policy execution failed:", execError);
+          toast.error(`Execution failed: ${execError.reason || "Check console."}`, { id: toastId });
+        }
+      });
+  
+    } catch (error) {
+      console.error("Quote request failed:", error);
+      toast.error(`Request failed: ${error.reason || "Check console."}`, { id: toastId });
+    }
   };
 
   const truncateAddress = (address) => {
@@ -273,7 +248,7 @@ function App() {
           nft={selectedNft}
           onClose={handleCloseModal}
           onConfirm={handleCreatePolicy}
-          onExecutePolicy={handleExecutePolicy}
+          
         />
       )}
     </div>
