@@ -72,7 +72,7 @@ Key enhancements include:
 
 | Layer             | Tech                                      |
 |------------------|-------------------------------------------|
-| Blockchain        | Ethereum (Sepolia Testnet)                |
+| Blockchain        | Ethereum (Sepolia Testnet) ,Avalanche Fuji Testnet|
 | Smart Contracts   | Solidity, Remix IDE                       |
 | Off-Chain Logic   | Chainlink Functions                       |
 | Frontend          | React (Vite), Ethers.js, Tailwind, Toast |
@@ -140,6 +140,8 @@ Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bit
 
 - **Sepolia Contract:**  
   [`AegisV2.sol`](https://sepolia.etherscan.io/address/0xa155016b9C39F500605F2e459A3335703b7053df)
+- **Avalanche Fuji Testnet**
+   -Smart contract is compiled and deployable on Fuji C-Chain , Final deployment will be completed once faucet access is restored  
 
 ---
 
