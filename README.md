@@ -6,7 +6,8 @@
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
 [![Project Status](https://img.shields.io/badge/Status-Feature_Complete-blue)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
 
-**Live Demo:** [https://aegis-frontend-tau.vercel.app/](https://aegis-frontend-tau.vercel.app/)
+- **Live Demo:** [https://aegis-frontend-tau.vercel.app/](https://aegis-frontend-tau.vercel.app/)
+- **NFT Minting Demo** [https://vimeo.com/1095478830?share=copy](https://vimeo.com/1095478830?share=copy)
 
 ---
 
@@ -119,6 +120,7 @@ The Sepolia network requires ETH for gas fees. You can get free testnet ETH from
 Once you have Sepolia ETH, you can mint a free, custom testnet NFT using the Bitbond Token Tool. This tool has a multi-step process.
 
 - **NFT Minting Tool:** [Bitbond's Token Tool for Sepolia](https://tokentool.bitbond.com/create-nft/ethereum-sepolia)
+- **NFT Minting Demo** [https://vimeo.com/1095478830?share=copy](https://vimeo.com/1095478830?share=copy)
 
 - **Instructions:**
     1. **Create NFT Definition:** First, use the "Create NFT" page to define your NFT (e.g., give it a name like "My Test Asset"). This transaction creates the contract for your NFT collection.
