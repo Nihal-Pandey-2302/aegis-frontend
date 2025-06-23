@@ -7,6 +7,7 @@
 [![Project Status](https://img.shields.io/badge/Status-Feature_Complete-blue)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
 
 - **Live Demo:** [https://aegis-frontend-tau.vercel.app/](https://aegis-frontend-tau.vercel.app/)
+- **Faucet** [Google Web3 Faucet](https://cloud.google.com/application/web3/faucet)
 - **NFT Minting Demo** [https://vimeo.com/1095478830?share=copy](https://vimeo.com/1095478830?share=copy)
 
 ---
@@ -113,7 +114,9 @@ To test the Aegis Protocol, you will need a wallet funded with Sepolia ETH and a
 
 The Sepolia network requires ETH for gas fees. You can get free testnet ETH from a public faucet.
 
-* **Recommended Faucet:** [Alchemy's Sepolia Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
+* **Recommended Faucet:**
+- [Google Web3 Faucet](https://cloud.google.com/application/web3/faucet)
+- [Alchemy's Sepolia Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
 
 ### 2. Get a Testnet NFT
 
