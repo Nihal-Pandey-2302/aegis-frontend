@@ -80,6 +80,22 @@ Key enhancements include:
 
 ---
 
+## 💰 The Capital Pool: How Claims Are Paid
+
+Aegis ensures reliable payouts by using a transparent, on-chain Capital Pool. This pool is the reserve used to pay out all successful insurance claims.
+
+For our current implementation, the Capital Pool is funded directly by the **premiums** paid by users when they purchase a policy.
+- Every time a user creates an insurance policy, the ETH premium is collected and stored within the `AegisV2.sol` smart contract itself.
+- This creates a collective, on-chain reserve. When a policyholder files a valid claim, the coverage amount is paid directly from this pool of accumulated premiums.
+
+This model demonstrates the core mechanic, but the long-term vision is to create a more robust, decentralized underwriting system by:
+
+- **Allowing Liquidity Providers (LPs)** to stake capital (e.g., ETH or USDC) into the pool to underwrite policies, earning a share of the premium revenue in return.
+- **Generating Yield** by integrating the capital pool with blue-chip DeFi protocols like Aave. The yield earned would further increase the pool's reserves and reward LPs, creating a self-sustaining economic loop.
+
+This approach ensures Aegis is not only functional but also designed for long-term, sustainable growth within the DeFi ecosystem.
+---
+
 ## Getting Started
 
 To run this project locally:
