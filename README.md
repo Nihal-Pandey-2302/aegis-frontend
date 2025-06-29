@@ -1,66 +1,47 @@
-# 🛡️ Aegis Protocol - Frontend Interface
+# 🛡️ Aegis Protocol - V2 Frontend Interface
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/Vercel-Live-brightgreen)](https://aegis-frontend-tau.vercel.app/)
-[![Project Status](https://img.shields.io/badge/Status-Live_Demo_&_V3_Development-blue)](https://github.com/Nihal-Pandey-2302/aegis-frontend)
-
-This repository contains the React frontend for the Aegis Protocol. It serves two purposes:
-1.  The `main` branch powers our stable, live demonstration of the core V2 protocol.
-2.  The `v3-upgrade` branch contains the latest user interface for interacting with our advanced **AegisV3 Autonomous Sentinel Protocol**.
+[![Vercel Demo](https://img.shields.io/badge/Live_Demo-Stable_V2-brightgreen)](https://aegis-frontend-tau.vercel.app/)
+[![Main Project Repo](https://img.shields.io/badge/Project_HQ-View_V3_Architecture-blue)](https://github.com/Nihal-Pandey-2302/Aegis-Protocol)
 
 ---
 
-## 🚀 Project Versions & Demos
+## 📌 About This Repository
 
-### 1. Stable Live Demo (V2)
+This repository contains the React frontend for the **V2 version** of the Aegis Protocol. The `main` branch of this repo is deployed to Vercel and serves as our stable, interactive demonstration.
 
-This is a functional demonstration of the core Aegis concept: dynamic NFT insurance powered by Chainlink Functions.
+### **Stable V2 Live Demo**
+
+This demo showcases our core concept of dynamic NFT insurance premiums powered by Chainlink Functions.
 
 -   **✅ Live Demo URL:** **[https://aegis-frontend-tau.vercel.app/](https://aegis-frontend-tau.vercel.app/)**
--   **Contract Used:** `AegisV2.sol` on Sepolia ([View on Etherscan](https://sepolia.etherscan.io/address/0xa155016b9C39F500605F2e459A3335703b7053df))
-
-### 2. The V3 Autonomous Sentinel (Post-Submission Upgrade)
-
-This is the most advanced version of our protocol, featuring a multi-service architecture that uses **Chainlink Automation** to proactively trigger **Chainlink Functions** for autonomous loss detection.
-
-
--   **V3 Contract:** `AegisV3.sol` on Sepolia ([View on Etherscan](https://sepolia.etherscan.io/address/0x9b426d9Ac95a77C19E2f2D1E3495154Bb4Bc3BAf))
--   **V3 Frontend Code:** Available on the **[`v3-upgrade` branch of this repository](https://github.com/Nihal-Pandey-2302/aegis-frontend/tree/v3-upgrade)**.
 
 ---
 
-## ⚙️ Running This Project Locally
+## 🚀 Our V3 Upgrade: The Autonomous Sentinel Protocol
 
-### To Run the V2 Demo Frontend (Recommended for Developers)
+For the hackathon, we continued building at high velocity and deployed **AegisV3**, a significant architectural evolution that integrates **Chainlink Automation** with **Chainlink Functions** to create a proactive, autonomous risk-monitoring protocol.
 
-1.  **Clone this repository:**
+All of the advanced V3 code, documentation, and on-chain proofs of our working system can be found in our main project repository.
+
+-   **➡️ View the AegisV3 Protocol & Documentation Here: [Aegis-Protocol on GitHub](https://github.com/Nihal-Pandey-2302/Aegis-Protocol)**
+
+---
+
+### Getting Started (Running this V2 Frontend Locally)
+
+1.  **Clone the repository and install dependencies:**
     ```bash
     git clone https://github.com/Nihal-Pandey-2302/aegis-frontend.git
     cd aegis-frontend
-    ```
-2.  **Switch to the `main` branch:**
-    ```bash
-    git checkout v3-upgrade
-    ```
-3.  **Install dependencies and set up your environment:**
-    Create a `.env` file in the root and add your Alchemy API Key: `VITE_ALCHEMY_API_KEY=YOUR_ALCHEMY_KEY`
-    ```bash
     npm install
     ```
-4.  **Update the contract address** in `src/config/contract.js` to point to the `AegisV3` address if needed.
-5.  **Run the development server:**
+2.  **Set up environment variables:**
+    Create a `.env` file and add your Alchemy API Key: `VITE_ALCHEMY_API_KEY=YOUR_ALCHEMY_KEY`
+3.  **Run the development server:**
     ```bash
     npm run dev
     ```
-
-### To Run the Stable V2 Demo Frontend
-Follow the steps above, but stay on the `main` branch.
-
----
-
-## 🔗 Project Repositories
-
--   **Backend & Protocol HQ (Monorepo):** The main project documentation and `AegisV3.sol` smart contract can be found here: **[Aegis-Protocol](https://github.com/Nihal-Pandey-2302/Aegis-Protocol)**
 
 ---
 
