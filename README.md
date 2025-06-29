@@ -25,6 +25,7 @@ For the hackathon, we continued building at high velocity and deployed **AegisV3
 All of the advanced V3 code, documentation, and on-chain proofs of our working system can be found in our main project repository.
 
 -   **➡️ View the AegisV3 Protocol & Documentation Here: [Aegis-Protocol on GitHub](https://github.com/Nihal-Pandey-2302/Aegis-Protocol)**
+-   **▶️ V3 Working and Proof** : [V3 Upgrades Video](https://www.youtube.com/watch?v=mQY3gdAVlv4)
 
 ---
 
