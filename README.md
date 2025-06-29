@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vercel Demo](https://img.shields.io/badge/Live_Demo-Stable_V2-brightgreen)](https://aegis-frontend-tau.vercel.app/)
 [![Main Project Repo](https://img.shields.io/badge/Project_HQ-View_V3_Architecture-blue)](https://github.com/Nihal-Pandey-2302/Aegis-Protocol)
-
+[![V3 Demo Video](https://img.shields.io/badge/V3_Working_and_Proof-green)](https://www.youtube.com/watch?v=mQY3gdAVlv4)
 ---
 
 ## 📌 About This Repository
