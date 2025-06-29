@@ -23,24 +23,22 @@ This is a functional demonstration of the core Aegis concept: dynamic NFT insura
 
 This is the most advanced version of our protocol, featuring a multi-service architecture that uses **Chainlink Automation** to proactively trigger **Chainlink Functions** for autonomous loss detection.
 
--   **🎥 The Definitive V3 Demo:** **[Watch the Autonomous Sentinel in Action Here](https://your-new-video-link.com)**
-    *(This video demonstrates the full, end-to-end functionality of the V3 protocol, which is the cornerstone of our final submission.)*
 
--   **V3 Contract:** `AegisV3.sol` on Sepolia ([View on Etherscan](https://sepolia.etherscan.io/address/0xd2Ce8CAb8285EA661ea2C6490f0f8467A39f9673))
+-   **V3 Contract:** `AegisV3.sol` on Sepolia ([View on Etherscan](https://sepolia.etherscan.io/address/0x9b426d9Ac95a77C19E2f2D1E3495154Bb4Bc3BAf))
 -   **V3 Frontend Code:** Available on the **[`v3-upgrade` branch of this repository](https://github.com/Nihal-Pandey-2302/aegis-frontend/tree/v3-upgrade)**.
 
 ---
 
 ## ⚙️ Running This Project Locally
 
-### To Run the V3 Autonomous Demo Frontend (Recommended for Developers)
+### To Run the V2 Demo Frontend (Recommended for Developers)
 
 1.  **Clone this repository:**
     ```bash
     git clone https://github.com/Nihal-Pandey-2302/aegis-frontend.git
     cd aegis-frontend
     ```
-2.  **Switch to the `v3-upgrade` branch:**
+2.  **Switch to the `main` branch:**
     ```bash
     git checkout v3-upgrade
     ```
